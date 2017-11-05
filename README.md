@@ -1,2 +1,2 @@
 # hello-world
-My first repository on git hub
+I am samarjeet and i m new on github
