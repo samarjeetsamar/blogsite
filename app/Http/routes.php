@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::auth();
 //pages controller 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('/aboutus', 'PagesController@aboutUs');
 
@@ -25,4 +25,17 @@ Route::get('/contact', 'PagesController@contactForm');
 
 //admin controller 
 Route::get('/admin/dashboard', 'AdminController@dashboard');
-Route::get('/admin/pages', 'AdminController@pages');
+Route::get('/admin/blogs', 'AdminController@pages');
+
+
+
+//post controller
+Route::get('/admin/add-blog', 'PostController@AddNewBlog');
+Route::post('admin/submit-blog', 'PostController@AddNewBlogForm');
+Route::get('admin/post-delete/{iid}', 'PostController@DeletePost');
+
+
+Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');
+
+
+

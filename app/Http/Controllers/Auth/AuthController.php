@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/dashboard';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -67,6 +67,19 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'type' => User::DEFAULT_TYPE,    
         ]);
     }
+
+
+    protected function authenticated($request, $user)
+    {
+        if($user->user_type === 1) {
+            return redirect()->intended('/admin/dashboard');
+        }
+        return redirect()->intended('/');
+    }
+
+    
+
 }

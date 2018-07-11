@@ -41,6 +41,20 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+
+    /* paginate */
+
+    'paginate' => '5',
+    
+    
+    
+    
+    
+    
+    
+    
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
