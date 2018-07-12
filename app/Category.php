@@ -13,8 +13,17 @@ class Category extends Model
         'id', 'category_name', 'category_slug',
     ];
 
+    public function posts()
+    {   
+        return $this->hasMany('App\Post','Category_ID');
+    }
 
-    public function GetcategorybyId($id){
+
+    public static function GetcategorybyId($id){
         return $categoryname = Category::select('category_name')->where('id', $id);
+    }
+
+    public static function GetAllcategory(){
+        return $categoryname = Category::select('id', 'category_name')->get();
     }
 }

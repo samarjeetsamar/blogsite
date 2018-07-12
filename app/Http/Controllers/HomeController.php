@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -13,10 +14,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
 
     /**
      * Show the application dashboard.
@@ -26,8 +24,10 @@ class HomeController extends Controller
     public function index()
     {
         
-        $post = Post::select('id', 'category_ID', 'post_content', 'post_title', 'post_slug', 'created_at')->orderBy('id', 'DESC')->take(5)->get();
+        $post = Post::select('id', 'category_ID', 'post_content', 'post_image',  'post_title', 'post_slug', 'created_at')->with('Category')->with('Comments')->orderBy('id', 'desc')->take(5)->get();
         
-        return view('home')->with( ['data'=>$post] );
+        $categories = Category::GetAllcategory();
+        
+        return view('home')->with( ['data'=>$post, 'category'=> $categories]);
     }
 }

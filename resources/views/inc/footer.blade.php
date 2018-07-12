@@ -4,34 +4,34 @@
 	</div>
 	<div class="owl-carousel follow-instagram">
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img1.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img1.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img2.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img2.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img3.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img3.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img4.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img4.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img5.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img5.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img6.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img6.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img7.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img7.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img8.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img8.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img7.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img7.png')}}" alt="...">
 		</div>
 		<div class="item">
-		  	<img src="{{asset('public/images/owlimg/owl-img8.png')}}" alt="...">
+		  	<img src="{{URL::asset('images/owlimg/owl-img8.png')}}" alt="...">
 		</div>
 	</div>
 </div>

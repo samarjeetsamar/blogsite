@@ -4,11 +4,11 @@
 		
     <section class="content-header">
 		<h1>
-			Add New Blog
+			Update Blog
         </h1>
       	<ol class="breadcrumb">
         	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        	<li class="active">Add New Blog</li>
+        	<li class="active">Update Blog</li>
       	</ol>
     </section> 
 
@@ -24,11 +24,12 @@
 			</div>
 
 			<div class="col-md-12">
-				<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/submit-blog') }}" enctype="multipart/form-data">
+				<form class="form-horizontal" role="form" method="POST" action="{{ url('admin/form-update-blog') }}" enctype="multipart/form-data">
 					{{ csrf_field() }}
+					<input type="hidden" name="post_id"  value=" {{ $data['id'] }}" />
 					<div class="form-group">
 						<div class="col-md-12">
-							<input type="text" name="title" class="form-control" id="title">
+							<input type="text" name="title" class="form-control" value=" {{ $data['post_title'] }}" id="title">
 							@if ($errors->has('title'))
 								<p class="error text-danger">{{ $errors->first('title') }}</p>
 							@endif
@@ -37,7 +38,8 @@
 					
 					<div class="form-group">
 						<div class="col-md-12">
-							<textarea id="some-textarea" name="content" placeholder="Enter text ..." style="width:100%;"></textarea>
+							
+							<textarea id="some-textarea" name="content"  style="width:100%;">{{ $data['post_content'] }} </textarea>
 							@if ($errors->has('content'))
 								<p class="error text-danger">{{ $errors->first('content') }}</p>
 							@endif
@@ -46,18 +48,12 @@
 
 					<div class="form-group">
 						<div class="col-md-12">
-							<!-- <select name="category" id="" class="form-control">
-								<option value=""> Select category </option>
-								@if(!empty($category))
-									@foreach ($category as $catval)
-									<option value="{{ $catval->id }}">{{ ucfirst($catval->category_name)  }}</option>
-									@endforeach
-								@endif
-							</select> -->
+							
 							@if(!empty($category))
 								@foreach ($category as $catval)
 								<label>
-									<input type="checkbox" name="category[]" value="<?php echo $catval->id; ?>"> <?php echo $catval->category_name; ?>
+									<input type="checkbox" <?php echo ($catval->id == $data['category_ID']) ? 'checked' : '' ; ?>  name="category[]" value="{{ $catval->id }}">
+									 {{ $catval->category_name }}
 								</label>
 								@endforeach
 							@else
@@ -70,6 +66,20 @@
 							<p>
 								<a href="javascript:void(0)"> Add new category </a>
 							</p>
+
+
+							 <?php
+								$image = '';
+								if( !empty($data['post_image']) && File::exists(public_path('uploads/'.$data['post_image'])) ){
+									$image = URL::asset('uploads').'/'.$data['post_image'];
+								}
+								else{
+									$image = get_dummy_image();
+								}
+							?>
+							<div style="width: 300px; overflow:hidden; margin-bottom: 10px;">
+							<img src="{{ $image }}" class="img-responsive" alt="" title="" />
+							</div>
 
 							<input type="file" name="postthumbnail" id="fileToUpload">
 						</div>

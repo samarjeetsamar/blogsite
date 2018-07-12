@@ -6,32 +6,32 @@
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-    <link rel="shortcut icon" href="{{asset('public/admin/img/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('admin/img/favicon.png')}}">
 
     <title> Admin Panel </title>
 
     <!-- Bootstrap CSS -->  
-     <link rel="stylesheet" href="{{asset('public/admin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">  
+     <link rel="stylesheet" href="{{  URL::asset('admin/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">  
 
-    <link rel="stylesheet" href="{{asset('public/admin/bower_components/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/bower_components/font-awesome/css/font-awesome.min.css')}}">
 
-    <link rel="stylesheet" href="{{asset('public/admin/bower_components/Ionicons/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/bower_components/Ionicons/css/ionicons.min.css')}}">
 
     <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="{{asset('public/admin/dist/css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/dist/css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{asset('public/admin/dist/css/skins/_all-skins.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/dist/css/skins/_all-skins.min.css')}}">
     <!-- Morris chart -->
-    <link rel="stylesheet" href="{{asset('public/admin/bower_components/morris.js/morris.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/bower_components/morris.js/morris.css')}}">
     <!-- jvectormap -->
-     <link rel="stylesheet" href="{{asset('public/admin/bower_components/jvectormap/jquery-jvectormap.css')}}">
+     <link rel="stylesheet" href="{{asset('admin/bower_components/jvectormap/jquery-jvectormap.css')}}">
      <!-- Date Picker -->
-    <link rel="stylesheet" href="{{asset('public/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{asset('public/admin/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="{{asset('public/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
     @yield('css')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -102,13 +102,13 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{asset('public/admin/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+                    <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
                     <span class="hidden-xs">Alexander Pierce</span>
                   </a>
                   <ul class="dropdown-menu">
                     <!-- User image -->
                     <li class="user-header">
-                      <img src="{{asset('public/admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                      <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                       <p>
                         Alexander Pierce - Web Developer
                         <small>Member since Nov. 2012</small>
@@ -152,7 +152,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
               <div class="pull-left image">
-                <img src="{{asset('public/admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
               </div>
               <div class="pull-left info">
                 <p>Alexander Pierce</p>
@@ -171,7 +171,7 @@
             </form> -->
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu" data-widget="tree">
+            <ul class="sidebar-menu tree" data-widget="tree">
               <li class="header">MAIN NAVIGATION</li>
               <!-- <li class="active treeview">
                 <a href="#">
@@ -188,20 +188,19 @@
 
               
 
-              <li class="treeview">
+              <li class="{{ (Request::is('admin/blogs') || Request::is('admin/add-blog') )  ? 'active' : '' }} treeview" >
                   <a href="#"><i class="fa fa-th"></i> <span>Blog</span>
                       <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                       </span>
                   </a>
-                  <ul class="treeview-menu" style="display: none;">
-                      <li>
+                  <ul class="treeview-menu">
+                      <li class="{{ Request::is('admin/blogs') ? 'active' : '' }}"> 
                           <a href="{{ url('admin/blogs') }}"><i class="fa fa-circle-o"></i>Blogs</a>
                       </li>
-                      <li>
+                      <li class="{{ Request::is('admin/add-blog') ? 'active' : '' }}">
                           <a href="{{ url('admin/add-blog') }}"><i class="fa fa-circle-o"></i> Add New</a>
                       </li>
-                      
                   </ul>
               </li>
 
@@ -226,33 +225,44 @@
       </footer>
   </section>
 
-    <script src="{{asset('public/admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="{{asset('public/admin/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('admin/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="{{asset('public/admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('admin/bower_components/moment/min/moment.min.js')}}"></script>
     
-   
-    
-    
-    
-    <script src="{{asset('public/admin/bower_components/moment/min/moment.min.js')}}"></script>
-    
-    <script src="{{asset('public/admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{asset('admin/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
     <!-- datepicker -->
-    <script src="{{asset('public/admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
     <!-- Bootstrap WYSIHTML5 -->
-    <script src="{{asset('public/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+    <script src="{{asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
     <!-- Slimscroll -->
-    <script src="{{asset('public/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
     <!-- FastClick -->
-    <script src="{{asset('public/admin/bower_components/fastclick/lib/fastclick.js')}}"></script>
+    <script src="{{asset('admin/bower_components/fastclick/lib/fastclick.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="{{asset('public/admin/dist/js/adminlte.min.js')}}"></script>
+    <script src="{{asset('admin/plugins/iCheck/icheck.min.js')}}"></script>
+    <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
+
+    <script>
+
+      $(function () {
+        
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+          
+          checkboxClass: 'icheckbox_minimal-blue',
+          radioClass   : 'iradio_minimal-blue'
+        })
+        //Red color scheme for iCheck
+      
+      })
+
+    </script>
     @yield('scripts')
 </body>
 </html>

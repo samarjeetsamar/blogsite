@@ -2,7 +2,7 @@
     <div class="sidebar_il about-me">
         <h3><span>about me</span></h3>
         <div class="thumbnail">
-            <img src="{{asset('public/images/about-img.png')}}" class="img-responsive img-circle" alt="....">
+            <img src="{{ URL::asset('images/about-img.png')}}" class="img-responsive img-circle" alt="....">
         </div>
         <p>
             hi, my name is jane doe. I am traveler, writer, blogger Loremss psm dolor sit amet, consectetur adipisicing elit.
@@ -30,7 +30,7 @@
             </ul>
         </div>
         <div class="banner-spot">   
-            <img src="{{asset('public/images/banner-spot.png')}}" class="img-responsive" alt="....">
+            <img src="{{ URL::asset('images/banner-spot.png')}}" class="img-responsive" alt="....">
         </div>
     </div>
     <div class="sidebar_il subscribe">
@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <a href="#">
-                        <img src="{{asset('public/images/post-img1.png')}}" class="img-responsive" alt="....">
+                        <img src="{{URL::asset('images/post-img1.png')}}" class="img-responsive" alt="....">
                        
                     </a>
                 </div>
@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <a href="#">
-                        <img src="{{asset('public/images/post-img1.png')}}" class="img-responsive" alt="....">
+                        <img src="{{URL::asset('images/post-img1.png')}}" class="img-responsive" alt="....">
                         
                     </a>
                 </div>
@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <a href="#">
-                        <img src="{{asset('public/images/post-img1.png')}}" class="img-responsive" alt="....">
+                        <img src="{{URL::asset('images/post-img1.png')}}" class="img-responsive" alt="....">
                         
                     </a>
                 </div>
@@ -103,20 +103,16 @@
     <div class="sidebar_il category">
         <h3><span>categories</span></h3>
         <div class="category-list">
-             <ul>
+            
+            <ul>
+
+                @foreach($category as $cat)
                 <li>
-                    <a href="#">lifestyle</a>
-                    <span>42 posts</span>
+                    <a href="#">{{ $cat->category_name }} </a>
+                    <span>42</span>
                 </li>
-                <li>
-                    <a href="#">inspiration</a>
-                    <span>56 posts</span>
-                </li>
-                <li>
-                    <a href="#">travel</a>
-                    <span>80 posts</span>
-                </li>
-             </ul>
+                @endforeach
+            </ul>
         </div>
     </div>
     <div class="sidebar_il tags">
@@ -151,47 +147,47 @@
             <ul class="list-inline">
                 <li>
                     <a href="#">
-                         <img src="{{asset('public/images/insta-img1.png')}}"  alt="....">
+                         <img src="{{URL::asset('images/insta-img1.png')}}"  alt="....">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="{{asset('public/images/insta-img2.png')}}"  alt="....">
+                        <img src="{{URL::asset('images/insta-img2.png')}}"  alt="....">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="{{asset('public/images/insta-img3.png')}}"  alt="....">
+                        <img src="{{URL::asset('images/insta-img3.png')}}"  alt="....">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="{{asset('public/images/insta-img4.png')}}"  alt="....">
+                        <img src="{{URL::asset('images/insta-img4.png')}}"  alt="....">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="{{asset('public/images/insta-img5.png')}}"  alt="....">
+                        <img src="{{URL::asset('images/insta-img5.png')}}"  alt="....">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="{{asset('public/images/insta-img6.png')}}"  alt="....">
+                        <img src="{{URL::asset('images/insta-img6.png')}}"  alt="....">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="{{asset('public/images/insta-img7.png')}}"  alt="....">
+                        <img src="{{URL::asset('images/insta-img7.png')}}"  alt="....">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="{{asset('public/images/insta-img8.png')}}"  alt="....">
+                        <img src="{{URL::asset('images/insta-img8.png')}}"  alt="....">
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="{{asset('public/images/insta-img9.png')}}"  alt="....">
+                        <img src="{{URL::asset('images/insta-img9.png')}}"  alt="....">
                     </a>
                 </li>
             </ul>

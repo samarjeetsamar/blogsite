@@ -34,7 +34,7 @@ class AdminController extends Controller
     }
 
     public function pages(){
-        $data = Post::select( 'id', 'author_ID', 'category_ID', 'post_content', 'post_title','post_slug')->orderBy('id', 'desc')->paginate(config('app.paginate'));
+        $data = Post::select( 'id', 'author_ID', 'category_ID', 'post_image', 'post_content', 'post_title','post_slug')->orderBy('id', 'desc')->paginate(config('app.paginate'));
         return view('/admin/blogs')->with(['data' => $data]);
     }
 
